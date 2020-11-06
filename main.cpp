@@ -4,40 +4,63 @@
 
 template<typename T>
 void generateRandom(SparseMatrix<T> *matrix, float factor);
+void comparePerformance();
 
 int main()
 {
-    int rows = 10, cols = 10, scalar = 2;
+    unsigned rows, cols, count, option1, option2, posx, posy;
+    int value, scalar;
+    SparseMatrix<int> matrix1, matrix2, matrix3;
+    cin>>option;    
+    cin>>rows>>cols>>count;
 
-    SparseMatrix<int> matrix1 =  HashSparseMatrix<int>(rows, cols); 
-    SparseMatrix<int> matrix2 =  HashSparseMatrix<int>(rows, cols); 
+    if(option1 == 1)
+    {
+        matrix1 = HashSparseMatrix<int>(rows, cols);
+        matrix2 = HashSparseMatrix<int>(rows, cols);
+    }
+    else
+    {
+        matrix1 = ListSparseMatrix<int>(rows, cols);  
+        matrix2 = ListSparseMatrix<int>(rows, cols);  
+    }
 
-    std::cout<<"Matrix1:"<<endl;
-    std::cout<<matrix1<<endl;
+    for (int i = 0; i < count; i++)
+    {
+        cin>>posx>>posy>>value;
+        matrix1.set(posx, posy, value);
+    }
+    for (int i = 0; i < count; i++)
+    {
+        cin>>posx>>posy>>value;
+        matrix2.set(posx, posy, value);
+    }
 
-    std::cout<<"Matrix2:"<<endl;
-    std::cout<<matrix1<<endl;
-
-    generateRandom<int>(matrix1, 0.2);//porcentaje de elementos no-vacios
-    generateRandom<int>(matrix2, 0.2);//porcentaje de elementos no-vacios
-    
-    SparseMatrix<int> result; 
-
-    std::cout<<"Matrix1 * "<<scalar<<":"<<endl;
-    SparseMatrix<int> result = matrix1 * scalar;
-    std::cout<<result<<endl;
-
-    std::cout<<"Matrix1 +  Matrix2:"<<endl;
-    SparseMatrix<int> result = matrix1  +  matrix2;
-    std::cout<<result<<endl;
-
-    std::cout<<"Matrix1 -  Matrix2:"<<endl;
-    SparseMatrix<int> result = matrix1  -  matrix2;
-    std::cout<<result<<endl;
-
-    std::cout<<"Matrix1 *  Matrix2:"<<endl;
-    SparseMatrix<int> result = matrix1  *  matrix2;
-    std::cout<<result<<endl;
-
+    switch (option2)
+    {
+    case 1:
+        matrix3 = matrix1 + matrix2;
+        break;
+    case 2:
+        matrix3 = matrix1 - matrix2;
+        break;
+    case 3:
+        matrix3 = matrix1 * matrix2;
+        break;
+    case 3:
+        matrix3 = matrix1 * 2;
+        break;
+    default:
+        break;
+    }
+    matrix3.display();   
     return 0;
+}
+
+void generateRandom(SparseMatrix<T> *matrix, float factor){
+    //TODO
+}
+
+void comparePerformance(){
+    //TODO
 }

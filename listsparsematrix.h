@@ -1,3 +1,8 @@
+#ifndef LIST_SPARSE_MATRIX_H
+#define LIST_SPARSE_MATRIX_H
+#include "sparsematrix.h"
+#include <vector>
+using namespace std;
 
 template <typename T>
 struct Node {
@@ -10,11 +15,17 @@ struct Node {
 };
 
 template <class T>
-class ListSparseMatrix : public SparseMatrix {
+class ListSparseMatrix : public SparseMatrix<T> {
     private:
         vector<Node<T>*> X;
         vector<Node<T>*> Y;
-        int columns;
-        int rows;
+        unsigned rows;
+        unsigned columns;
+
+    public:
+        ListSparseMatrix(unsigned rows, unsigned columns);
+        ~ListSparseMatrix();
 };
+
+#endif
 
