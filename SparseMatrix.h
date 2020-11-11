@@ -3,18 +3,16 @@
 
 template <typename T>
 class SparseMatrix {
-    public:
-        bool set(unsigned posX, unsigned posY, T data) = 0;
-        T get(unsigned posX, unsigned posY) = 0;
-        bool remove(unsigned posX, unsigned posY) = 0;
+    protected:
+        unsigned rows;
+        unsigned columns;
 
-        T operator()(unsigned posX, unsigned posY) = 0;   
-        SparseMatrix<T> operator*(T scalar) = 0;   
-        SparseMatrix<T> operator+(Matrix<T> other) = 0;  
-        SparseMatrix<T> operator-(Matrix<T> other) = 0;
-        SparseMatrix<T> operator*(Matrix<T> other) = 0;
-        SparseMatrix<T> transpose() = 0;
-        void display() = 0;
+    public:        
+        virtual bool set(unsigned posX, unsigned posY, T data) = 0;
+        virtual T get(unsigned posX, unsigned posY) = 0;
+        virtual bool remove(unsigned posX, unsigned posY) = 0;
+        virtual T operator()(unsigned posX, unsigned posY) = 0;    
+        virtual void display() = 0; 
 };
 
 #endif

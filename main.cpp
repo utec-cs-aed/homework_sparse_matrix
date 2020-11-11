@@ -5,58 +5,96 @@
 template<typename T>
 void generateRandom(SparseMatrix<T> *matrix, float factor);
 void comparePerformance();
+void  testHashSparse(int option);
+void  testListSparse(int option);
 
-int main()
+int main(int argc, char const *argv[])
 {
-    unsigned rows, cols, count, option1, option2, posx, posy;
-    int value, scalar;
-    SparseMatrix<int> matrix1, matrix2, matrix3;
-    cin>>option;    
-    cin>>rows>>cols>>count;
-
+    int  option1, option2;
+    option1 = atoi(argv[1]);     
+    option2 = atoi(argv[2]);      
     if(option1 == 1)
-    {
-        matrix1 = HashSparseMatrix<int>(rows, cols);
-        matrix2 = HashSparseMatrix<int>(rows, cols);
-    }
+       testHashSparse(option2);
     else
-    {
-        matrix1 = ListSparseMatrix<int>(rows, cols);  
-        matrix2 = ListSparseMatrix<int>(rows, cols);  
-    }
+       testListSparse(option2);    
+    return 0;
+}
 
+void  testHashSparse(int option){
+    HashSparseMatrix<int> *matrix1, *matrix2, matrix3;
+    unsigned rows, cols, count, posx, posy;
+    int value;
+    cin>>rows>>cols>>count;
+    matrix1 = new HashSparseMatrix<int>(rows, cols);
+    matrix2 = new HashSparseMatrix<int>(rows, cols);
     for (int i = 0; i < count; i++)
     {
         cin>>posx>>posy>>value;
-        matrix1.set(posx, posy, value);
+        matrix1->set(posx, posy, value);
     }
     for (int i = 0; i < count; i++)
     {
         cin>>posx>>posy>>value;
-        matrix2.set(posx, posy, value);
+        matrix2->set(posx, posy, value);
     }
-
-    switch (option2)
+    switch (option)
     {
     case 1:
-        matrix3 = matrix1 + matrix2;
+        matrix3 = (*matrix1) + (*matrix2);
         break;
     case 2:
-        matrix3 = matrix1 - matrix2;
+        matrix3 = (*matrix1) - (*matrix2);
         break;
     case 3:
-        matrix3 = matrix1 * matrix2;
+        matrix3 = (*matrix1) * (*matrix2);
         break;
-    case 3:
-        matrix3 = matrix1 * 2;
+    case 4:
+        matrix3 = (*matrix1) * 2;
         break;
     default:
         break;
     }
-    matrix3.display();   
-    return 0;
+    matrix3.display();
 }
 
+void  testListSparse(int option){
+    ListSparseMatrix<int> *matrix1, *matrix2, matrix3;
+    unsigned rows, cols, count, posx, posy;
+    int value;
+    cin>>rows>>cols>>count;
+    matrix1 = new ListSparseMatrix<int>(rows, cols);
+    matrix2 = new ListSparseMatrix<int>(rows, cols);
+    for (int i = 0; i < count; i++)
+    {
+        cin>>posx>>posy>>value;
+        matrix1->set(posx, posy, value);
+    }
+    for (int i = 0; i < count; i++)
+    {
+        cin>>posx>>posy>>value;
+        matrix2->set(posx, posy, value);
+    }
+    switch (option)
+    {
+    case 1:
+        matrix3 = (*matrix1) + (*matrix2);
+        break;
+    case 2:
+        matrix3 = (*matrix1) - (*matrix2);
+        break;
+    case 3:
+        matrix3 = (*matrix1) * (*matrix2);
+        break;
+    case 4:
+        matrix3 = (*matrix1) * 2;
+        break;
+    default:
+        break;
+    }
+    matrix3.display();
+}
+
+template<typename T>
 void generateRandom(SparseMatrix<T> *matrix, float factor){
     //TODO
 }

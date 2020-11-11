@@ -11,9 +11,24 @@ class HashSparseMatrix: public SparseMatrix<T>
         std::unordered_map<int, T> hash; 
 
     public:
-        //TODO: implement the methods
+        HashSparseMatrix();
         HashSparseMatrix(unsigned rows, unsigned columns);
         ~HashSparseMatrix();
+
+        bool set(unsigned posX, unsigned posY, T data);
+
+        T get(unsigned posX, unsigned posY);
+        bool remove(unsigned posX, unsigned posY);
+
+        T operator()(unsigned posX, unsigned posY);            
+
+        HashSparseMatrix<T>& operator * (T scalar);   
+        HashSparseMatrix<T>& operator + (const HashSparseMatrix<T> &other);  
+        HashSparseMatrix<T>& operator - (const HashSparseMatrix<T> &other);
+        HashSparseMatrix<T>& operator * (const HashSparseMatrix<T> &other);
+        HashSparseMatrix<T>& transpose();
+        
+        void display();
 };
 
 #endif
