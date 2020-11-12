@@ -49,7 +49,7 @@ void  testHashSparse(int option){
         matrix3 = (*matrix1) * (*matrix2);
         break;
     case 4:
-        matrix3 = (*matrix1) * 2;
+        matrix3 = (*matrix1) * 2 + (*matrix2) * 3;
         break;
     default:
         break;
@@ -86,7 +86,7 @@ void  testListSparse(int option){
         matrix3 = (*matrix1) * (*matrix2);
         break;
     case 4:
-        matrix3 = (*matrix1) * 2;
+        matrix3 = (*matrix1) * 2 + (*matrix2) * 3;
         break;
     default:
         break;
