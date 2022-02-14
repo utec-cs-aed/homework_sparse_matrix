@@ -16,12 +16,10 @@ class HashSparseMatrix: public SparseMatrix<T>
         ~HashSparseMatrix();
 
         bool set(unsigned posX, unsigned posY, T data);
-
         T get(unsigned posX, unsigned posY);
         bool remove(unsigned posX, unsigned posY);
 
-        T operator()(unsigned posX, unsigned posY);            
-
+        T& operator()(unsigned posX, unsigned posY); 
         HashSparseMatrix<T>& operator * (T scalar);   
         HashSparseMatrix<T>& operator + (const HashSparseMatrix<T> &other);  
         HashSparseMatrix<T>& operator - (const HashSparseMatrix<T> &other);

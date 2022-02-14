@@ -103,3 +103,6 @@ void generateRandom(SparseMatrix<T> *matrix, float factor){
 void comparePerformance(){
     //TODO
 }
+
+
+

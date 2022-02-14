@@ -18,7 +18,7 @@ template <class T>
 class ListSparseMatrix : public SparseMatrix<T> {
     private:
         vector<Node<T>*> X;
-        vector<Node<T>*> Y;        
+        vector<Node<T>*> Y;                
 
     public:
         ListSparseMatrix();
@@ -27,7 +27,7 @@ class ListSparseMatrix : public SparseMatrix<T> {
 
         bool set(unsigned posX, unsigned posY, T data);
 
-        T get(unsigned posX, unsigned posY);
+        T get(unsigned posX, unsigned posY);//O(1) + O(m)
         bool remove(unsigned posX, unsigned posY);
 
         T operator()(unsigned posX, unsigned posY);   
