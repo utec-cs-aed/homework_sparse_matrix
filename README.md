@@ -2,6 +2,7 @@
 
 # Sparse Matrix
 Implementar todos los métodos de ambas técnicas de Sparse Matrix: HashSparseMatrix (12) y ListSparseMatrix (20). 
+Considerar que solo se trabajar con tipo de datos numericos (int, float, double, etc.), en donde el cero (0) representa el vacío.
 Además, realice un experimento del desempeño de ambas tecnicas sobre los mismos datos y llene el siguiente cuadro:
 
 | N   | ListSparseMatrix | HashSparseMatrix |
