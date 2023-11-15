@@ -27,7 +27,7 @@ class ListSparseMatrix : public SparseMatrix<T> {
 
         bool set(unsigned i, unsigned j, T data);
 
-        T get(unsigned i, unsigned j);//O(1) + O(m)
+        T get(unsigned i, unsigned j);
         bool remove(unsigned i, unsigned j);
 
         T operator()(unsigned i, unsigned j);   
