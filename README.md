@@ -1,8 +1,7 @@
 # Alumno: ____   _____
 
 # Sparse Matrix
-Implementar todos los métodos de ambas técnicas de Sparse Matrix: HashSparseMatrix y ListSparseMatrix. 
-
+Implementar todos los métodos de ambas técnicas de Sparse Matrix: HashSparseMatrix (12) y ListSparseMatrix (20). 
 Además, realice un experimento del desempeño de ambas tecnicas sobre los mismos datos y llene el siguiente cuadro:
 
 | N   | ListSparseMatrix | HashSparseMatrix |
