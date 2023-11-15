@@ -8,7 +8,7 @@ template <typename T>
 class HashSparseMatrix: public SparseMatrix<T>
 {
     private:
-        std::unordered_map<int, T> hash; 
+        std::unordered_map<int, T> hash; //usar su propia implementacion de HashTable
 
     public:
         HashSparseMatrix();
@@ -20,12 +20,12 @@ class HashSparseMatrix: public SparseMatrix<T>
         bool remove(unsigned i, unsigned j);
 
         T& operator()(unsigned i, unsigned j); 
+
         HashSparseMatrix<T>& operator * (T scalar);   
         HashSparseMatrix<T>& operator + (const HashSparseMatrix<T> &other);  
         HashSparseMatrix<T>& operator - (const HashSparseMatrix<T> &other);
         HashSparseMatrix<T>& operator * (const HashSparseMatrix<T> &other);
-        HashSparseMatrix<T>& transpose();
-        
+        HashSparseMatrix<T>& transpose();        
         void display();
 };
 
