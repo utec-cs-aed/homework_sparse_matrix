@@ -1,12 +1,12 @@
-#ifndef LIST_SPARSE_MATRIX_H
-#define LIST_SPARSE_MATRIX_H
+#ifndef ARRAY_SPARSE_MATRIX_H
+#define ARRAY_SPARSE_MATRIX_H
 
 #include <iostream>
 #include "sparsematrix.h"
 using namespace std;
 
 template <class T>
-class ListSparseMatrix : public SparseMatrix<T> {
+class ArraySparseMatrix : public SparseMatrix<T> {
     private:
         struct Node {
             public:
@@ -17,29 +17,22 @@ class ListSparseMatrix : public SparseMatrix<T> {
                 Node* down;
         };
 
-        struct NodeH {
-            public:
-                int pos;
-                NodeH* next;
-                Node* head_list;                
-        };
-
-        NodeH* row_header;
-        NodeH* col_header; 
+        Node** rows;//array of lists
+        Node** cols;//array of lists 
     public:
-        ListSparseMatrix(){
+        ArraySparseMatrix(){
             //TODO
         }
-        ListSparseMatrix(unsigned rows, unsigned columns){
+        ArraySparseMatrix(unsigned rows, unsigned columns){
             //TODO
         }
-        ~ListSparseMatrix(){
+        ~ArraySparseMatrix(){
             //TODO
         }
         void operator=(const SparseMatrix<T> &other){
             //TODO
         }
-        
+
         bool set(unsigned i, unsigned j, T data) {
             throw std::runtime_error("");
         }
