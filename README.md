@@ -4,10 +4,12 @@
 - Implementar el Sparse Matrix usando listas enlazadas en su dos versiones: Manteniendo las cabeceras de las filas y columnas en arrays de tamaño fijo (ArraySparseMatrix) y manteniendo las cabeceras en listas enlazadas (ListSparseMatrix). 
 
 ![Array Sparse Matrix](https://i.sstatic.net/TMf3x.jpg)
+
 *ArraySparseMatrix*
 
 
 ![List Sparse Matrix](https://www.cs.usfca.edu/~galles/cs245S15/SparseArray/SparseArrayEx.jpg)
+
 *ListSparseMatrix*
 
 - Asumimos que el sparse matrix solo admite datos numericos (int, short, float, double), en donde el cero (0) representa el vacío.
