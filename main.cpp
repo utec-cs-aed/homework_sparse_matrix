@@ -63,7 +63,7 @@ vector<int*> generateRandomData(int N, int size){
         triple[0] = randomInt(gen);
         triple[1] = randomInt(gen);
         triple[2] = randomInt(gen);
-        data.push_back(triple);
+        data[i] = triple;
     }        
     return data;
 }
