@@ -34,3 +34,4 @@
     * rows = columns = N 
     * Use un factor de llenado máximo de 0.05
     * Por un tema de justicia ambas técnicas deben recibir los mismos datos. 
+**Nota:** Esta tarea extra adiciona hasta 2 puntos al examen final. Si se detecta algún indicio de plagio, no se considerará puntaje alguno.
