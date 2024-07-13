@@ -52,19 +52,12 @@ void  testOperations() {
 }
 
 
-vector<int*> generateRandomData(int N, int size){
-    std::random_device dev;//random seed
-    std::mt19937 gen(dev()); // Mersenne Twister engine
-    std::uniform_int_distribution<std::mt19937::result_type> randomInt(0, N-1); // [0, n-1]
-    
-    vector<int*> data(size);
-    for(int i=0;i<size;i++) {
-        int* triple = new int[3];
-        triple[0] = randomInt(gen);
-        triple[1] = randomInt(gen);
-        triple[2] = randomInt(gen);
-        data[i] = triple;
-    }        
+vector <int*> generateRandomData (int N, int size) {
+    default_random_engine gen; 
+    std::uniform_int_distribution<int> randInt (0, N - 1);	// [0, N-1]
+    vector <int*>data (size);
+    for (int i = 0; i < size; i++)
+        data[i] = new int[3] {randInt(gen), randInt(gen), randInt(gen)};
     return data;
 }
 
